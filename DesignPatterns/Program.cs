@@ -2,36 +2,49 @@
 
 
 using DesignPatterns.Intro_To_Design_Patterns;
+using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
 
-MallardDuck MDuck = new MallardDuck();
+Duck MDuck = new MallardDuck();
 MDuck.Display();
-MDuck.Quack();
+MDuck.PerformQuack();
 MDuck.Swim();
-MDuck.Fly();
+MDuck.PerformFly();
+MDuck.SetFlyBehavior(new FlyNoWay());
+MDuck.PerformFly();
 
+Console.WriteLine("----------------------------------------------");
+
+
+Duck ModelDuck = new ModelDuck();
+ModelDuck.Display();
+ModelDuck.PerformQuack();
+ModelDuck.Swim();
+MDuck.PerformFly();
+ModelDuck.SetFlyBehavior(new FlyRocketPowered());
+ModelDuck.PerformFly();
 
 Console.WriteLine("----------------------------------------------");
 
 RedheadDuck RDuck = new RedheadDuck();
 RDuck.Display();
-RDuck.Quack();
+RDuck.PerformQuack();
 RDuck.Swim();
-RDuck.Fly();
+RDuck.PerformFly();
 
 Console.WriteLine("----------------------------------------------");
 
 RubberDuck RubDuck = new RubberDuck();
 RubDuck.Display();
-RubDuck.Quack();
+RubDuck.PerformQuack();
 RubDuck.Swim();
-RubDuck.Fly();
+RubDuck.PerformFly();
 
 Console.WriteLine("----------------------------------------------");
 
 DecoyDuck WDuck = new DecoyDuck();
 WDuck.Display();
-WDuck.Quack();
+WDuck.PerformQuack();
 WDuck.Swim();
-WDuck.Fly();
+WDuck.PerformFly();
 
 Console.ReadKey();
