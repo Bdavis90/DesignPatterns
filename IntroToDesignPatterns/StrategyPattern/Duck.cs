@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns.Intro_To_Design_Patterns
 {
+    //The Strategy Pattern defines a family of algorithms, 
+    //encapsulates each one, 
+    //and makes them interchangeable.
+    //Strategy lets the algorithm vary independently from clients that use it.
     #region Original Classes #1
 #if false
     // Bad. Increases maintenance
