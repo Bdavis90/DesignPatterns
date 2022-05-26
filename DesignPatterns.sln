@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{C22F7DED-F8A2-4CBC-B23F-84087377D273}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroToDesignPatterns", "IntroToDesignPatterns\IntroToDesignPatterns.csproj", "{E02A1671-399E-4B33-8682-1F4CB1F6AAB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyPattern", "IntroToDesignPatterns\StrategyPattern.csproj", "{E02A1671-399E-4B33-8682-1F4CB1F6AAB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
