@@ -35,6 +35,9 @@ namespace ObserverPattern
 
     #endregion
 
+    #region Observer Pattern Push
+#if false
+
     public class WeatherData : ISubject
     {
         List<IObserver> observers;
@@ -74,5 +77,65 @@ namespace ObserverPattern
             observers.Remove(o);
         }
     }
+#endif
+    #endregion
+
+    #region Observer Pattern Pull
+    public class WeatherData : ISubject
+    {
+        List<IObserver> observers;
+        float temp;
+        float humidity;
+        float pressure;
+
+        public WeatherData()
+        {
+            observers = new List<IObserver>();
+        }
+
+        public void MeasurementsChanged()
+        {
+            temp = RandomWeather.GetTemperature();
+            humidity = RandomWeather.GetHumidity();
+            pressure = RandomWeather.GetPressure();
+
+            NotifyObserver();
+        }
+
+        public void NotifyObserver()
+        {
+            foreach (IObserver observer in observers)
+            {
+                observer.Update();
+            }
+        }
+
+        public void RegisterObserver(IObserver o)
+        {
+            observers.Add(o);
+        }
+
+        public void RemoveObserver(IObserver o)
+        {
+            observers.Remove(o);
+        }
+
+        public float GetTemperature()
+        {
+            return temp;
+        }
+
+        public float GetHumidity()
+        {
+            return humidity;
+        }
+
+        public float GetPressure()
+        {
+            return pressure;
+        }
+    }
+
+    #endregion
 
 }

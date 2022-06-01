@@ -22,5 +22,10 @@ namespace ObserverPattern.WeatherDisplays
             Console.WriteLine($"Forecast: Temp: {temp}, Humidity: {humidity}, Pressure: {pressure}");
 
         }
+        public void Update()
+        {
+            Console.WriteLine($"Forecast: Temp: {weatherData.GetTemperature()}, Humidity: {weatherData.GetHumidity()}, Pressure: {weatherData.GetPressure()}");
+
+        }
     }
 }
