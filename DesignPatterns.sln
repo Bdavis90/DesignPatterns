@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns", "DesignPat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyPattern", "IntroToDesignPatterns\StrategyPattern.csproj", "{E02A1671-399E-4B33-8682-1F4CB1F6AAB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer Pattern", "Observer Pattern\Observer Pattern.csproj", "{FCFD107B-3466-4CA3-AE2C-3941D5EAECAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverPattern", "Observer Pattern\ObserverPattern.csproj", "{FCFD107B-3466-4CA3-AE2C-3941D5EAECAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

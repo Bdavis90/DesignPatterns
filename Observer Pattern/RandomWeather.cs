@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Observer_Pattern
+namespace ObserverPattern
 {
     public class RandomWeather
     {
@@ -12,19 +12,25 @@ namespace Observer_Pattern
         public static float GetTemperature()
         {
             Random r = new Random();
-            return r.NextSingle() * r.Next(100);
+            float a = r.NextSingle() * r.Next(100);
+            Console.WriteLine($"Temp: {a}");
+            return a;
         }
 
         public static float GetHumidity()
         {
             Random r = new Random();
-            return r.NextSingle() * r.Next(100);
+            float a = r.NextSingle() * r.Next(100);
+            Console.WriteLine($"Humidity: {a}");
+            return a;
         }
 
         public static float GetPressure()
         {
             Random r = new Random();
-            return r.NextSingle() * r.Next(100);
+            float a = r.NextSingle() * r.Next(100);
+            Console.WriteLine($"Pressure: {a}");
+            return a;
         }
     }
 }

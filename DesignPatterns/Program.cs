@@ -3,6 +3,8 @@
 
 using DesignPatterns.Intro_To_Design_Patterns;
 using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
+using ObserverPattern;
+using ObserverPattern.WeatherDisplays;
 using StrategyPattern.StrategyPattern;
 
 //Duck MDuck = new MallardDuck();
@@ -48,22 +50,39 @@ using StrategyPattern.StrategyPattern;
 //WDuck.Swim();
 //WDuck.PerformFly();
 
-Character king = new King();
-king.Fight();
+//Character king = new King();
+//king.Fight();
 
-Console.WriteLine("----------------------------------------------");
+//Console.WriteLine("----------------------------------------------");
 
-Character Queen = new Queen();
-Queen.Fight();
+//Character Queen = new Queen();
+//Queen.Fight();
 
-Console.WriteLine("----------------------------------------------");
+//Console.WriteLine("----------------------------------------------");
 
-Character Knight = new Knight();
-Knight.Fight();
+//Character Knight = new Knight();
+//Knight.Fight();
 
-Console.WriteLine("----------------------------------------------");
+//Console.WriteLine("----------------------------------------------");
 
-Character Troll = new Troll();
-Troll.Fight();
+//Character Troll = new Troll();
+//Troll.Fight();
+
+WeatherData weatherData = new WeatherData();
+
+CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
+ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
+
+weatherData.MeasurementsChanged();
+weatherData.MeasurementsChanged();
+weatherData.MeasurementsChanged();
+weatherData.RemoveObserver(currentConditionsDisplay);
+weatherData.RemoveObserver(forecastDisplay);
+weatherData.RemoveObserver(statisticsDisplay);
+weatherData.MeasurementsChanged();
+weatherData.RegisterObserver(statisticsDisplay);
+weatherData.MeasurementsChanged();
+
 
 Console.ReadKey();

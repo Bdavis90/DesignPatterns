@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Observer_Pattern
+namespace ObserverPattern.Interfaces
 {
-    public interface Observer
+    public interface IObserver
     {
-        void Update();
+        void Update(float temp, float humidity, float pressure);
     }
 }

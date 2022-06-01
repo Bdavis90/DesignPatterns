@@ -1,13 +1,17 @@
-﻿using Observer_Pattern.WeatherDisplays;
+﻿using ObserverPattern.Interfaces;
+using ObserverPattern.WeatherDisplays;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Observer_Pattern
+namespace ObserverPattern
 {
-#if true
+    //  CONCRETE SUBJECT
+    #region Original Class
+
+#if false
     // Bad Don't do!
     public class WeatherData
     {
@@ -26,10 +30,49 @@ namespace Observer_Pattern
             forecastDisplay.Update(temp, humidity, pressure);
         }
 
-
-
     }
 #endif
 
+    #endregion
+
+    public class WeatherData : ISubject
+    {
+        List<IObserver> observers;
+        float temp;
+        float humidity;
+        float pressure;
+
+        public WeatherData()
+        {
+            observers = new List<IObserver>();
+        }
+
+        public void MeasurementsChanged()
+        {
+            temp = RandomWeather.GetTemperature();
+            humidity = RandomWeather.GetHumidity();
+            pressure = RandomWeather.GetPressure();
+
+            NotifyObserver();
+        }
+
+        public void NotifyObserver()
+        {
+            foreach (IObserver observer in observers)
+            {
+                observer.Update(temp, humidity, pressure);
+            }
+        }
+
+        public void RegisterObserver(IObserver o)
+        {
+            observers.Add(o);
+        }
+
+        public void RemoveObserver(IObserver o)
+        {
+            observers.Remove(o);
+        }
+    }
 
 }

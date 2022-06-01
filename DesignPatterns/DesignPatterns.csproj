@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IntroToDesignPatterns\StrategyPattern.csproj" />
+    <ProjectReference Include="..\Observer Pattern\ObserverPattern.csproj" />
   </ItemGroup>
 
 </Project>
