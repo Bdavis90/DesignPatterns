@@ -81,6 +81,7 @@ namespace ObserverPattern
     #endregion
 
     #region Observer Pattern Pull
+#if false
     public class WeatherData : ISubject
     {
         List<IObserver> observers;
@@ -136,6 +137,52 @@ namespace ObserverPattern
         }
     }
 
-    #endregion
+#endif
 
+    #endregion
+    
+    #region Observer Pattern Events
+    public class WeatherData 
+    {
+        public float temp;
+        public float humidity;
+        public float pressure;
+        public event EventHandler<WeatherData> OnTempChange;
+
+        public WeatherData()
+        {
+        }
+
+        public void MeasurementsChanged()
+        {
+            temp = RandomWeather.GetTemperature();
+            humidity = RandomWeather.GetHumidity();
+            pressure = RandomWeather.GetPressure();
+
+            NotifyObserver();
+        }
+
+        public void NotifyObserver()
+        {
+            OnTempChange?.Invoke(this, new WeatherData { temp = this.temp, pressure = this.pressure, humidity = this.humidity});
+        }
+
+        // Getters for Pull Observer
+        public float GetTemperature()
+        {
+            return temp;
+        }
+
+        public float GetHumidity()
+        {
+            return humidity;
+        }
+
+        public float GetPressure()
+        {
+            return pressure;
+        }
+    }
+
+    #endregion
 }

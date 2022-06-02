@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern.WeatherDisplays
 {
-    public class StatisticsDisplay : IObserver
+    public class StatisticsDisplay : IObserver, IDisposable
     {
         WeatherData weatherData;
         // Pass in the WeatherData we want to observe
         public StatisticsDisplay(WeatherData weatherData)
         {
-            this.weatherData = weatherData;
-            weatherData.RegisterObserver(this);
+            weatherData.OnTempChange += Update;
+        }
+
+        private void Update(object? sender, WeatherData e)
+        {
+            Console.WriteLine($"Statistics: Temp: {e.temp}, Humidity: {e.humidity}, Pressure: {e.pressure}");
         }
 
         public void Update(float temp, float humidity, float pressure)
@@ -26,6 +30,10 @@ namespace ObserverPattern.WeatherDisplays
         {
             Console.WriteLine($"Statistics: Temp: {weatherData.GetTemperature()}, Humidity: {weatherData.GetHumidity()}, Pressure: {weatherData.GetPressure()}");
 
+        }
+        public void Dispose()
+        {
+            weatherData.OnTempChange -= Update;
         }
     }
 }

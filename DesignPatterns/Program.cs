@@ -74,14 +74,22 @@ CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay
 ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
 StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
 
+// PUSH/PULL OBSERVERS
+//weatherData.MeasurementsChanged();
+//weatherData.MeasurementsChanged();
+//weatherData.MeasurementsChanged();
+//weatherData.RemoveObserver(currentConditionsDisplay);
+//weatherData.RemoveObserver(forecastDisplay);
+//weatherData.RemoveObserver(statisticsDisplay);
+//weatherData.MeasurementsChanged();
+//weatherData.RegisterObserver(statisticsDisplay);
+//weatherData.MeasurementsChanged();
+
+//EVENT OBSERVERS
 weatherData.MeasurementsChanged();
 weatherData.MeasurementsChanged();
 weatherData.MeasurementsChanged();
-weatherData.RemoveObserver(currentConditionsDisplay);
-weatherData.RemoveObserver(forecastDisplay);
-weatherData.RemoveObserver(statisticsDisplay);
 weatherData.MeasurementsChanged();
-weatherData.RegisterObserver(statisticsDisplay);
 weatherData.MeasurementsChanged();
 
 
