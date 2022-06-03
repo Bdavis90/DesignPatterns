@@ -1,11 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using DecoratorPattern.BeverageTypes;
 using DesignPatterns.Intro_To_Design_Patterns;
 using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
 using ObserverPattern;
 using ObserverPattern.WeatherDisplays;
 using StrategyPattern.StrategyPattern;
+
+// STRATEGY PATTERN
 
 //Duck MDuck = new MallardDuck();
 //MDuck.Display();
@@ -68,11 +71,14 @@ using StrategyPattern.StrategyPattern;
 //Character Troll = new Troll();
 //Troll.Fight();
 
-WeatherData weatherData = new WeatherData();
 
-CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
-ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
-StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
+// OBSERVER PATTERN
+
+//WeatherData weatherData = new WeatherData();
+
+//CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
+//ForecastDisplay forecastDisplay = new ForecastDisplay(weatherData);
+//StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
 
 // PUSH/PULL OBSERVERS
 //weatherData.MeasurementsChanged();
@@ -86,11 +92,18 @@ StatisticsDisplay statisticsDisplay = new StatisticsDisplay(weatherData);
 //weatherData.MeasurementsChanged();
 
 //EVENT OBSERVERS
-weatherData.MeasurementsChanged();
-weatherData.MeasurementsChanged();
-weatherData.MeasurementsChanged();
-weatherData.MeasurementsChanged();
-weatherData.MeasurementsChanged();
+//weatherData.MeasurementsChanged();
+//weatherData.MeasurementsChanged();
+//weatherData.MeasurementsChanged();
+//weatherData.MeasurementsChanged();
+//weatherData.MeasurementsChanged();
+
+// DECORATOR PATTERN
+
+HouseBlend houseBlend = new HouseBlend();
+houseBlend.SetMilk(true);
+houseBlend.SetSoy(true);
+houseBlend.Cost();
 
 
 Console.ReadKey();
