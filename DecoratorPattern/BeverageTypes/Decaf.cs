@@ -8,7 +8,6 @@ namespace DecoratorPattern.BeverageTypes
 {
     public class Decaf : Beverage
     {
-        private double price = 3.00;
 
         public Decaf()
         {
@@ -17,10 +16,7 @@ namespace DecoratorPattern.BeverageTypes
 
         public override double Cost()
         {
-            double totalPrice = price;
-            totalPrice += base.Cost();
-            Console.WriteLine($"The total price of the Decaf Coffee is {totalPrice}");
-            return totalPrice;
+            return 1.05;
         }
     }
 }

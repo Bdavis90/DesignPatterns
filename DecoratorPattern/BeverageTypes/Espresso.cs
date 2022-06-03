@@ -9,19 +9,15 @@ namespace DecoratorPattern.BeverageTypes
     public class Espresso : Beverage
     {
 
-        private double price = 3.25;
-
         public Espresso()
         {
-            description = "Expresso Coffee";
+            description = "Expresso";
         }
 
         public override double Cost()
         {
-            double totalPrice = price;
-            totalPrice += base.Cost();
-            Console.WriteLine($"The total price of the Expresso Coffee is {totalPrice}");
-            return totalPrice;
+
+            return 1.99;
         }
     }
 }

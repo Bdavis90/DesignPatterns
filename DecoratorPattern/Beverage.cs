@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace DecoratorPattern
 {
     #region Original Class
-#if true
+#if false
     // Bad Code
     public class Beverage
     {
-        public string description;
+        public string description = "Unknown Beverage";
         private bool milk;
         private bool soy;
         private bool mocha;
@@ -21,19 +21,19 @@ namespace DecoratorPattern
             double totalCost = 0.00;
             if (milk)
             {
-                totalCost += .25;
+                totalCost += .10;
             }
             if (soy)
             {
-                totalCost += .30;
+                totalCost += .15;
             }
             if (mocha)
             {
-                totalCost += .55;
+                totalCost += .20;
             }
             if (whip)
             {
-                totalCost += .20;
+                totalCost += .10;
             }
 
             return totalCost;
@@ -81,5 +81,17 @@ namespace DecoratorPattern
 #endif
 
     #endregion
+
+    public abstract class Beverage
+    {
+        public string description = "Unknown Beverage";
+
+        public abstract double Cost();
+        public string GetDescription()
+        {
+            return description;
+        }
+
+    }
 
 }

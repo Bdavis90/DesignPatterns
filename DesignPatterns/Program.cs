@@ -1,7 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using DecoratorPattern;
 using DecoratorPattern.BeverageTypes;
+using DecoratorPattern.Decorators;
 using DesignPatterns.Intro_To_Design_Patterns;
 using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
 using ObserverPattern;
@@ -100,10 +102,20 @@ using StrategyPattern.StrategyPattern;
 
 // DECORATOR PATTERN
 
-HouseBlend houseBlend = new HouseBlend();
-houseBlend.SetMilk(true);
-houseBlend.SetSoy(true);
-houseBlend.Cost();
+// ORIGINAL BAD CODE
+//HouseBlend houseBlend = new HouseBlend();
+//houseBlend.SetMilk(true);
+//houseBlend.SetSoy(true);
+//houseBlend.Cost();
 
+//Beverage espresso = new Espresso();
+//espresso = new Mocha(espresso);
+//Console.WriteLine($"{espresso.GetDescription()} ${espresso.Cost()}");
+
+Beverage darkRoast = new DarkRoast();
+darkRoast = new Mocha(darkRoast);
+darkRoast = new Mocha(darkRoast);
+darkRoast = new Whip(darkRoast);
+Console.WriteLine($"{darkRoast.GetDescription()} ${darkRoast.Cost()}");
 
 Console.ReadKey();

@@ -8,19 +8,16 @@ namespace DecoratorPattern.BeverageTypes
 {
     public class DarkRoast : Beverage
     {
-        private double price = 3.50;
 
         public DarkRoast()
         {
-            description = "DarkRoast Coffee";
+            description = "Dark Roast Coffee";
         }
 
         public override double Cost()
         {
-            double totalPrice = price;
-            totalPrice += base.Cost();
-            Console.WriteLine($"The total price of the DarkRoast Coffee is {totalPrice}");
-            return totalPrice;
+
+            return .99;
         }
     }
 }
