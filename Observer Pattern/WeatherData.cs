@@ -142,7 +142,7 @@ namespace ObserverPattern
     #endregion
     
     #region Observer Pattern Events
-    public class WeatherData 
+    public class WeatherData : ISubjectEvents
     {
         public float temp;
         public float humidity;

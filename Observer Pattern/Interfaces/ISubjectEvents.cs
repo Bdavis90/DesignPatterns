@@ -1,4 +1,4 @@
-﻿namespace ObserverPattern
+﻿namespace ObserverPattern.Interfaces
 {
     public interface ISubjectEvents
     {
