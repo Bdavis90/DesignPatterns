@@ -24,21 +24,25 @@ namespace DecoratorPattern.Decorators
 #endif
     #endregion
 
-    public class Milk : CondimentDecorator
+    public class Milk : IBeverage
     {
-        public Milk(Beverage beverage)
+        public IBeverage beverage;
+        public Milk(IBeverage beverage)
         {
             this.beverage = beverage;
+            Description = "Milk";
         }
 
-        public override double Cost()
+        public string Description { get; set; }
+
+        public double Cost()
         {
             return beverage.Cost() + 0.10;
         }
 
-        public override string GetDescription()
+        public string GetDescription()
         {
-            return beverage.GetDescription() + ", Milk";
+            return beverage.GetDescription() + $", {Description}";
         }
     }
 }

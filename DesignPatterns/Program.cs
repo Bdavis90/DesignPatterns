@@ -9,6 +9,7 @@ using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
 using ObserverPattern;
 using ObserverPattern.WeatherDisplays;
 using StrategyPattern.StrategyPattern;
+using System.Globalization;
 
 // STRATEGY PATTERN
 
@@ -108,14 +109,17 @@ using StrategyPattern.StrategyPattern;
 //houseBlend.SetSoy(true);
 //houseBlend.Cost();
 
-//Beverage espresso = new Espresso();
-//espresso = new Mocha(espresso);
-//Console.WriteLine($"{espresso.GetDescription()} ${espresso.Cost()}");
+IBeverage espresso = new Espresso();
+espresso = new Mocha(espresso);
+Console.WriteLine($"{espresso.GetDescription()} ${espresso.Cost()}");
 
-Beverage darkRoast = new DarkRoast();
+IBeverage darkRoast = new DarkRoast();
 darkRoast = new Mocha(darkRoast);
 darkRoast = new Mocha(darkRoast);
 darkRoast = new Whip(darkRoast);
 Console.WriteLine($"{darkRoast.GetDescription()} ${darkRoast.Cost()}");
+
+IBeverage decaf = new Milk(new Milk(new Whip(new Soy(new Decaf()))));
+Console.WriteLine($"{decaf.GetDescription()} ${decaf.Cost().ToString("N", CultureInfo.InvariantCulture)}");
 
 Console.ReadKey();

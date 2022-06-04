@@ -6,9 +6,22 @@ using System.Threading.Tasks;
 
 namespace DecoratorPattern.Decorators
 {
-    public abstract class CondimentDecorator : Beverage
+    public abstract class CondimentDecorator : IBeverage
     {
-        public Beverage beverage;
-        public abstract string GetDescription();
+        public IBeverage beverage;
+
+        public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public double Cost()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetDescription()
+        {
+            throw new NotImplementedException();
+        }
+
+        //public abstract string GetDescription();
     }
 }

@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace DecoratorPattern.BeverageTypes
 {
-    public class HouseBlend : Beverage
+    public class HouseBlend : IBeverage
     {
 
         public HouseBlend()
         {
-            description = "House Blend Coffee";
+            Description = "House Blend Coffee";
         }
 
-        public override double Cost()
-        {
-            return .89;
-        }
+        public string Description { get; set; }
+
+        public double Cost() => .89;
+
+        public string GetDescription() => Description;
     }
 }

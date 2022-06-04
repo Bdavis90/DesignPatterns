@@ -24,21 +24,25 @@ namespace DecoratorPattern.Decorators
 #endif
     #endregion
 
-    public class Whip : CondimentDecorator
+    public class Whip : IBeverage
     {
-        public Whip(Beverage beverage)
+        public IBeverage beverage;
+        public Whip(IBeverage beverage)
         {
             this.beverage = beverage;
+            Description = "Whip";
         }
 
-        public override double Cost()
+        public string Description { get; set; }
+
+        public double Cost()
         {
             return beverage.Cost() + 0.10;
         }
 
-        public override string GetDescription()
+        public string GetDescription()
         {
-            return beverage.GetDescription() + ", Whip";
+            return beverage.GetDescription() + $", {Description}";
         }
     }
 }

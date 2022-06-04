@@ -82,15 +82,11 @@ namespace DecoratorPattern
 
     #endregion
 
-    public abstract class Beverage
+    public interface IBeverage
     {
-        public string description = "Unknown Beverage";
-
-        public abstract double Cost();
-        public string GetDescription()
-        {
-            return description;
-        }
+        public string Description { get; set; }
+        public double Cost();
+        public string GetDescription();
 
     }
 

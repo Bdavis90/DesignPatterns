@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace DecoratorPattern.BeverageTypes
 {
-    public class DarkRoast : Beverage
+    public class DarkRoast : IBeverage
     {
 
         public DarkRoast()
         {
-            description = "Dark Roast Coffee";
+            Description = "Dark Roast Coffee";
         }
 
-        public override double Cost()
-        {
+        public string Description { get; set; }
 
-            return .99;
-        }
+        public double Cost() => .99;
+
+        public string GetDescription() => Description;
     }
 }

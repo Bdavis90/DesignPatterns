@@ -24,21 +24,25 @@ namespace DecoratorPattern.Decorators
 
     #endregion
 
-    public class Soy : CondimentDecorator
+    public class Soy : IBeverage
     {
-        public Soy(Beverage beverage)
+        public IBeverage beverage;
+        public Soy(IBeverage beverage)
         {
             this.beverage = beverage;
+            Description = "Soy";
         }
 
-        public override double Cost()
+        public string Description { get; set; }
+
+        public double Cost()
         {
             return beverage.Cost() + 0.15;
         }
 
-        public override string GetDescription()
+        public string GetDescription()
         {
-            return beverage.GetDescription() + ", Soy";
+            return beverage.GetDescription() + $", {Description}";
         }
     }
 }

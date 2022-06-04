@@ -25,21 +25,25 @@ namespace DecoratorPattern.Decorators
 
     #endregion
 
-    public class Mocha : CondimentDecorator
+    public class Mocha : IBeverage
     {
-        public Mocha(Beverage beverage)
+        public IBeverage beverage;
+        public Mocha(IBeverage beverage)
         {
             this.beverage = beverage;
+            Description = "Mocha";
         }
 
-        public override double Cost()
+        public string Description { get; set; }
+
+        public double Cost()
         {
             return beverage.Cost() + 0.20;
         }
 
-        public override string GetDescription()
+        public string GetDescription()
         {
-            return beverage.GetDescription() + ", Mocha";
+            return beverage.GetDescription() + $", {Description}";
         }
 
     }
