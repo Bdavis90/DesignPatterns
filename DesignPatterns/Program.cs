@@ -5,11 +5,15 @@ using DecoratorPattern;
 using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Decorators;
 using DesignPatterns.Intro_To_Design_Patterns;
+using FactoryPattern.FactoryMethod.Animals;
+using FactoryPattern.FactoryMethod.Factories;
 using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
 using ObserverPattern;
 using ObserverPattern.WeatherDisplays;
 using StrategyPattern.StrategyPattern;
 using System.Globalization;
+using System.Text;
+using System.Threading;
 
 // STRATEGY PATTERN
 
@@ -109,17 +113,28 @@ using System.Globalization;
 //houseBlend.SetSoy(true);
 //houseBlend.Cost();
 
-IBeverage espresso = new Espresso();
-espresso = new Mocha(espresso);
-Console.WriteLine($"{espresso.GetDescription()} ${espresso.Cost()}");
+//IBeverage espresso = new Espresso();
+//espresso = new Mocha(espresso);
+//Console.WriteLine($"{espresso.GetDescription()} ${espresso.Cost()}");
 
-IBeverage darkRoast = new DarkRoast();
-darkRoast = new Mocha(darkRoast);
-darkRoast = new Mocha(darkRoast);
-darkRoast = new Whip(darkRoast);
-Console.WriteLine($"{darkRoast.GetDescription()} ${darkRoast.Cost()}");
+//IBeverage darkRoast = new DarkRoast();
+//darkRoast = new Mocha(darkRoast);
+//darkRoast = new Mocha(darkRoast);
+//darkRoast = new Whip(darkRoast);
+//Console.WriteLine($"{darkRoast.GetDescription()} ${darkRoast.Cost()}");
 
-IBeverage decaf = new Milk(new Milk(new Whip(new Soy(new Decaf()))));
-Console.WriteLine($"{decaf.GetDescription()} ${decaf.Cost().ToString("N", CultureInfo.InvariantCulture)}");
+//IBeverage decaf = new Milk(new Milk(new Whip(new Soy(new Decaf()))));
+//Console.WriteLine($"{decaf.GetDescription()} ${decaf.Cost().ToString("N", CultureInfo.InvariantCulture)}");
+
+
+BalancedFactory factory = new BalancedFactory();
+IAnimal animal = factory.CreateAnimal(Animal.Cat);
+
+animal.Speak();
+animal = factory.CreateAnimal(Animal.Dog);
+animal.Speak();
 
 Console.ReadKey();
+
+
+

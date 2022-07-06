@@ -8,7 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj" />
+    <ProjectReference Include="..\FactoryPattern\FactoryPattern.csproj" />
     <ProjectReference Include="..\IntroToDesignPatterns\StrategyPattern.csproj" />
     <ProjectReference Include="..\Observer Pattern\ObserverPattern.csproj" />
   </ItemGroup>
