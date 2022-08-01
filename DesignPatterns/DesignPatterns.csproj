@@ -12,10 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CommandPattern\CommandPattern.csproj" />
     <ProjectReference Include="..\DecoratorPattern\DecoratorPattern.csproj" />
     <ProjectReference Include="..\FactoryPattern\FactoryPattern.csproj" />
     <ProjectReference Include="..\IntroToDesignPatterns\StrategyPattern.csproj" />
     <ProjectReference Include="..\Observer Pattern\ObserverPattern.csproj" />
+    <ProjectReference Include="..\SingletonPattern\SingletonPattern.csproj" />
   </ItemGroup>
 
 </Project>

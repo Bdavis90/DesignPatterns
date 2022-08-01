@@ -9,14 +9,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyPattern", "IntroToD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserverPattern", "Observer Pattern\ObserverPattern.csproj", "{FCFD107B-3466-4CA3-AE2C-3941D5EAECAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorPattern", "DecoratorPattern\DecoratorPattern.csproj", "{5AB358B0-40FB-4B9C-A2DE-AC6BE50AF40A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoratorPattern", "DecoratorPattern\DecoratorPattern.csproj", "{5AB358B0-40FB-4B9C-A2DE-AC6BE50AF40A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryPattern", "FactoryPattern\FactoryPattern.csproj", "{BE81C526-B0DF-4F98-B778-415E6E7204FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FactoryPattern", "FactoryPattern\FactoryPattern.csproj", "{BE81C526-B0DF-4F98-B778-415E6E7204FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC4C71C1-4444-49A3-86F2-E9A4F2338F62}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SingletonPattern", "SingletonPattern\SingletonPattern.csproj", "{C205E2D5-6083-450E-AD89-029A75BC0428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPattern", "CommandPattern\CommandPattern.csproj", "{106C0637-F382-4DE0-9157-CC8D78AD8446}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +48,14 @@ Global
 		{BE81C526-B0DF-4F98-B778-415E6E7204FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE81C526-B0DF-4F98-B778-415E6E7204FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE81C526-B0DF-4F98-B778-415E6E7204FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C205E2D5-6083-450E-AD89-029A75BC0428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C205E2D5-6083-450E-AD89-029A75BC0428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C205E2D5-6083-450E-AD89-029A75BC0428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C205E2D5-6083-450E-AD89-029A75BC0428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{106C0637-F382-4DE0-9157-CC8D78AD8446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{106C0637-F382-4DE0-9157-CC8D78AD8446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{106C0637-F382-4DE0-9157-CC8D78AD8446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{106C0637-F382-4DE0-9157-CC8D78AD8446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

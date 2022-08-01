@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using CommandPattern;
 using DecoratorPattern;
 using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Decorators;
@@ -10,6 +11,7 @@ using FactoryPattern.FactoryMethod.Factories;
 using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
 using ObserverPattern;
 using ObserverPattern.WeatherDisplays;
+using SingletonPattern;
 using StrategyPattern.StrategyPattern;
 using System.Globalization;
 using System.Text;
@@ -127,12 +129,36 @@ using System.Threading;
 //Console.WriteLine($"{decaf.GetDescription()} ${decaf.Cost().ToString("N", CultureInfo.InvariantCulture)}");
 
 
-BalancedFactory factory = new BalancedFactory();
-IAnimal animal = factory.CreateAnimal(Animal.Cat);
+//BalancedFactory factory = new BalancedFactory();
+//IAnimal animal = factory.CreateAnimal(Animal.Cat);
 
-animal.Speak();
-animal = factory.CreateAnimal(Animal.Dog);
-animal.Speak();
+//animal.Speak();
+//animal = factory.CreateAnimal(Animal.Dog);
+//animal.Speak();
+
+//Singleton s = Singleton.GetInstance();
+//Singleton s1 = Singleton.GetInstance();
+
+//Console.WriteLine($"s hash {s.GetHashCode()}");
+//Console.WriteLine($"s1 hash {s1.GetHashCode()}");
+
+//Invoker will be passed a command
+SimpleRemoteControl remote = new SimpleRemoteControl();
+// Receiver of the request
+Light light = new Light();
+//Command will be passed a receiver
+LightOnCommand lightOn = new LightOnCommand(light);
+
+GarageDoor garageDoor = new GarageDoor();
+GarageDoorOpenCommand garageOpen = new GarageDoorOpenCommand(garageDoor);
+
+remote.SetCommand(lightOn);
+remote.ButtonWasPressed();
+remote.SetCommand(garageOpen);
+remote.ButtonWasPressed();
+
+
+
 
 Console.ReadKey();
 
