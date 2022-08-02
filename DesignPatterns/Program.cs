@@ -2,6 +2,7 @@
 
 
 using CommandPattern;
+using CommandPattern.Commands;
 using DecoratorPattern;
 using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Decorators;
@@ -143,19 +144,36 @@ using System.Threading;
 //Console.WriteLine($"s1 hash {s1.GetHashCode()}");
 
 //Invoker will be passed a command
-SimpleRemoteControl remote = new SimpleRemoteControl();
+RemoteControl remote = new RemoteControl();
 // Receiver of the request
-Light light = new Light();
-//Command will be passed a receiver
-LightOnCommand lightOn = new LightOnCommand(light);
-
+Light livingRoomLight = new Light("Living Room");
+Light kitchenLight = new Light("Kitchen");
 GarageDoor garageDoor = new GarageDoor();
-GarageDoorOpenCommand garageOpen = new GarageDoorOpenCommand(garageDoor);
+Stereo stereo = new Stereo();
+//Command will be passed a receiver
+LightOnCommand livingRoomlightOn = new LightOnCommand(livingRoomLight);
+LightOffCommand livingRoomlightOff = new LightOffCommand(livingRoomLight);
+LightOnCommand kitchenlightOn = new LightOnCommand(kitchenLight);
+LightOffCommand kitchenlightOff = new LightOffCommand(kitchenLight);
 
-remote.SetCommand(lightOn);
-remote.ButtonWasPressed();
-remote.SetCommand(garageOpen);
-remote.ButtonWasPressed();
+GarageDoorOpenCommand garageOpen = new GarageDoorOpenCommand(garageDoor);
+GarageDoorCloseCommand garageClosed = new GarageDoorCloseCommand(garageDoor);
+
+StereoOnCommand stereoOn = new StereoOnCommand(stereo);
+StereoOffCommand stereoOff = new StereoOffCommand(stereo);
+
+remote.SetCommand(0, livingRoomlightOn, livingRoomlightOff);
+remote.SetCommand(1, kitchenlightOn, kitchenlightOff);
+remote.SetCommand(2, garageOpen, garageClosed);
+remote.SetCommand(3, stereoOn, stereoOff);
+remote.OnButonWasPushed(0);
+remote.OffButtonWasPushed(0);
+remote.OnButonWasPushed(1);
+remote.OffButtonWasPushed(1);
+remote.OnButonWasPushed(2);
+remote.OffButtonWasPushed(2);
+remote.OnButonWasPushed(3);
+remote.OffButtonWasPushed(3);
 
 
 

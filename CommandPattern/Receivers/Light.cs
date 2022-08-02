@@ -9,16 +9,23 @@ namespace CommandPattern
     public class Light
     {
         public bool isOn = false;
+        public string name;
+
+        public Light(string name)
+        {
+            this.name = name;
+        }
+
         public bool On()
         {
-            Console.WriteLine("Light is turned on");
+            Console.WriteLine($"{name} Light is turned on");
             isOn = true;
             return isOn;
         }
 
         public bool Off()
         {
-            Console.WriteLine("Light is turned off");
+            Console.WriteLine($"{name} Light is turned off");
             isOn = false;
             return isOn;
         }
