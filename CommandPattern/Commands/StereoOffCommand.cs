@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandPattern.Receivers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace CommandPattern
 {
     public class StereoOffCommand : ICommand
     {
-        Stereo stereo;
+        private Stereo stereo;
 
         public StereoOffCommand(Stereo stereo)
         {
@@ -18,6 +19,11 @@ namespace CommandPattern
         public void Execute()
         {
             stereo.Off();
+        }
+
+        public void Undo()
+        {
+            stereo.On();
         }
     }
 }

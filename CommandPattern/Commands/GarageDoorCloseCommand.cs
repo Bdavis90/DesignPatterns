@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandPattern.Receivers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace CommandPattern.Commands
 {
     public class GarageDoorCloseCommand : ICommand
     {
-        GarageDoor garageDoor;
+        private GarageDoor garageDoor;
 
         public GarageDoorCloseCommand(GarageDoor garageDoor)
         {
@@ -18,6 +19,11 @@ namespace CommandPattern.Commands
         public void Execute()
         {
             garageDoor.Down();
+        }
+
+        public void Undo()
+        {
+            garageDoor.Up();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace CommandPattern
+﻿using CommandPattern.Receivers;
+
+namespace CommandPattern
 {
     public class LightOnCommand : ICommand
     {
@@ -11,6 +13,11 @@
         public void Execute()
         {
             light.On();
+        }
+
+        public void Undo()
+        {
+            light.Off();
         }
     }
 }

@@ -3,6 +3,7 @@
 
 using CommandPattern;
 using CommandPattern.Commands;
+using CommandPattern.Receivers;
 using DecoratorPattern;
 using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Decorators;
@@ -150,6 +151,7 @@ Light livingRoomLight = new Light("Living Room");
 Light kitchenLight = new Light("Kitchen");
 GarageDoor garageDoor = new GarageDoor();
 Stereo stereo = new Stereo();
+CeilingFan ceilingFan = new CeilingFan("Living Room");
 //Command will be passed a receiver
 LightOnCommand livingRoomlightOn = new LightOnCommand(livingRoomLight);
 LightOffCommand livingRoomlightOff = new LightOffCommand(livingRoomLight);
@@ -162,18 +164,43 @@ GarageDoorCloseCommand garageClosed = new GarageDoorCloseCommand(garageDoor);
 StereoOnCommand stereoOn = new StereoOnCommand(stereo);
 StereoOffCommand stereoOff = new StereoOffCommand(stereo);
 
+CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan);
+CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
+CeilingFanLowCommand ceilingFanLow = new CeilingFanLowCommand(ceilingFan);
+CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+
 remote.SetCommand(0, livingRoomlightOn, livingRoomlightOff);
 remote.SetCommand(1, kitchenlightOn, kitchenlightOff);
 remote.SetCommand(2, garageOpen, garageClosed);
 remote.SetCommand(3, stereoOn, stereoOff);
+remote.SetCommand(4, ceilingFanHigh, ceilingFanOff);
+remote.SetCommand(5, ceilingFanMedium, ceilingFanOff);
+remote.SetCommand(6, ceilingFanLow, ceilingFanOff);
+
+Console.WriteLine(remote.ToString());
+
 remote.OnButonWasPushed(0);
 remote.OffButtonWasPushed(0);
+remote.UndoButtonWasPushed();
+Console.WriteLine();
 remote.OnButonWasPushed(1);
 remote.OffButtonWasPushed(1);
+remote.UndoButtonWasPushed();
 remote.OnButonWasPushed(2);
 remote.OffButtonWasPushed(2);
+remote.UndoButtonWasPushed();
 remote.OnButonWasPushed(3);
 remote.OffButtonWasPushed(3);
+remote.UndoButtonWasPushed();
+remote.OnButonWasPushed(4);
+remote.OffButtonWasPushed(4);
+remote.UndoButtonWasPushed();
+remote.OnButonWasPushed(5);
+remote.OffButtonWasPushed(5);
+remote.UndoButtonWasPushed();
+remote.OnButonWasPushed(6);
+remote.OffButtonWasPushed(6);
+remote.UndoButtonWasPushed();
 
 
 
