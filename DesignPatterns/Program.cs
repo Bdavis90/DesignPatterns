@@ -8,6 +8,9 @@ using DecoratorPattern;
 using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Decorators;
 using DesignPatterns.Intro_To_Design_Patterns;
+using FactoryPattern.AbstractFactory;
+using FactoryPattern.AbstractFactory.Factory;
+using FactoryPattern.AbstractFactory.ProductInterface;
 using FactoryPattern.FactoryMethod.Animals;
 using FactoryPattern.FactoryMethod.Factories;
 using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
@@ -130,6 +133,7 @@ using System.Threading;
 //IBeverage decaf = new Milk(new Milk(new Whip(new Soy(new Decaf()))));
 //Console.WriteLine($"{decaf.GetDescription()} ${decaf.Cost().ToString("N", CultureInfo.InvariantCulture)}");
 
+// FACTORY PATTERN
 
 //BalancedFactory factory = new BalancedFactory();
 //IAnimal animal = factory.CreateAnimal(Animal.Cat);
@@ -137,6 +141,15 @@ using System.Threading;
 //animal.Speak();
 //animal = factory.CreateAnimal(Animal.Dog);
 //animal.Speak();
+
+// ABSTRACT FACTORY PATTERN
+
+
+//SamsungFactory samsungFactory = new SamsungFactory();
+//IMobile galaxy = samsungFactory.CreateMobile(FactoryPattern.ModelType.Galaxy);
+//galaxy.GetMobile();
+//ISignal galaxySignal = samsungFactory.CreateSignalStrength(FactoryPattern.ModelType.Galaxy);
+//galaxySignal.ShowSignalStrength();
 
 //Singleton s = Singleton.GetInstance();
 //Singleton s1 = Singleton.GetInstance();
