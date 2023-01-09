@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using AdapterPattern;
 using CommandPattern;
 using CommandPattern.Commands;
 using CommandPattern.Receivers;
@@ -157,65 +158,81 @@ using System.Threading;
 //Console.WriteLine($"s hash {s.GetHashCode()}");
 //Console.WriteLine($"s1 hash {s1.GetHashCode()}");
 
-//Invoker will be passed a command
-RemoteControl remote = new RemoteControl();
-// Receiver of the request
-Light livingRoomLight = new Light("Living Room");
-Light kitchenLight = new Light("Kitchen");
-GarageDoor garageDoor = new GarageDoor();
-Stereo stereo = new Stereo();
-CeilingFan ceilingFan = new CeilingFan("Living Room");
-//Command will be passed a receiver
-LightOnCommand livingRoomlightOn = new LightOnCommand(livingRoomLight);
-LightOffCommand livingRoomlightOff = new LightOffCommand(livingRoomLight);
-LightOnCommand kitchenlightOn = new LightOnCommand(kitchenLight);
-LightOffCommand kitchenlightOff = new LightOffCommand(kitchenLight);
 
-GarageDoorOpenCommand garageOpen = new GarageDoorOpenCommand(garageDoor);
-GarageDoorCloseCommand garageClosed = new GarageDoorCloseCommand(garageDoor);
+// COMMAND PATTERN
 
-StereoOnCommand stereoOn = new StereoOnCommand(stereo);
-StereoOffCommand stereoOff = new StereoOffCommand(stereo);
+////Invoker will be passed a command
+//RemoteControl remote = new RemoteControl();
+//// Receiver of the request
+//Light livingRoomLight = new Light("Living Room");
+//Light kitchenLight = new Light("Kitchen");
+//GarageDoor garageDoor = new GarageDoor();
+//Stereo stereo = new Stereo();
+//CeilingFan ceilingFan = new CeilingFan("Living Room");
+////Command will be passed a receiver
+//LightOnCommand livingRoomlightOn = new LightOnCommand(livingRoomLight);
+//LightOffCommand livingRoomlightOff = new LightOffCommand(livingRoomLight);
+//LightOnCommand kitchenlightOn = new LightOnCommand(kitchenLight);
+//LightOffCommand kitchenlightOff = new LightOffCommand(kitchenLight);
 
-CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan);
-CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
-CeilingFanLowCommand ceilingFanLow = new CeilingFanLowCommand(ceilingFan);
-CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+//GarageDoorOpenCommand garageOpen = new GarageDoorOpenCommand(garageDoor);
+//GarageDoorCloseCommand garageClosed = new GarageDoorCloseCommand(garageDoor);
 
-remote.SetCommand(0, livingRoomlightOn, livingRoomlightOff);
-remote.SetCommand(1, kitchenlightOn, kitchenlightOff);
-remote.SetCommand(2, garageOpen, garageClosed);
-remote.SetCommand(3, stereoOn, stereoOff);
-remote.SetCommand(4, ceilingFanHigh, ceilingFanOff);
-remote.SetCommand(5, ceilingFanMedium, ceilingFanOff);
-remote.SetCommand(6, ceilingFanLow, ceilingFanOff);
+//StereoOnCommand stereoOn = new StereoOnCommand(stereo);
+//StereoOffCommand stereoOff = new StereoOffCommand(stereo);
 
-Console.WriteLine(remote.ToString());
+//CeilingFanHighCommand ceilingFanHigh = new CeilingFanHighCommand(ceilingFan);
+//CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
+//CeilingFanLowCommand ceilingFanLow = new CeilingFanLowCommand(ceilingFan);
+//CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
 
-remote.OnButonWasPushed(0);
-remote.OffButtonWasPushed(0);
-remote.UndoButtonWasPushed();
-Console.WriteLine();
-remote.OnButonWasPushed(1);
-remote.OffButtonWasPushed(1);
-remote.UndoButtonWasPushed();
-remote.OnButonWasPushed(2);
-remote.OffButtonWasPushed(2);
-remote.UndoButtonWasPushed();
-remote.OnButonWasPushed(3);
-remote.OffButtonWasPushed(3);
-remote.UndoButtonWasPushed();
-remote.OnButonWasPushed(4);
-remote.OffButtonWasPushed(4);
-remote.UndoButtonWasPushed();
-remote.OnButonWasPushed(5);
-remote.OffButtonWasPushed(5);
-remote.UndoButtonWasPushed();
-remote.OnButonWasPushed(6);
-remote.OffButtonWasPushed(6);
-remote.UndoButtonWasPushed();
+//remote.SetCommand(0, livingRoomlightOn, livingRoomlightOff);
+//remote.SetCommand(1, kitchenlightOn, kitchenlightOff);
+//remote.SetCommand(2, garageOpen, garageClosed);
+//remote.SetCommand(3, stereoOn, stereoOff);
+//remote.SetCommand(4, ceilingFanHigh, ceilingFanOff);
+//remote.SetCommand(5, ceilingFanMedium, ceilingFanOff);
+//remote.SetCommand(6, ceilingFanLow, ceilingFanOff);
 
+//Console.WriteLine(remote.ToString());
 
+//remote.OnButonWasPushed(0);
+//remote.OffButtonWasPushed(0);
+//remote.UndoButtonWasPushed();
+//Console.WriteLine();
+//remote.OnButonWasPushed(1);
+//remote.OffButtonWasPushed(1);
+//remote.UndoButtonWasPushed();
+//remote.OnButonWasPushed(2);
+//remote.OffButtonWasPushed(2);
+//remote.UndoButtonWasPushed();
+//remote.OnButonWasPushed(3);
+//remote.OffButtonWasPushed(3);
+//remote.UndoButtonWasPushed();
+//remote.OnButonWasPushed(4);
+//remote.OffButtonWasPushed(4);
+//remote.UndoButtonWasPushed();
+//remote.OnButonWasPushed(5);
+//remote.OffButtonWasPushed(5);
+//remote.UndoButtonWasPushed();
+//remote.OnButonWasPushed(6);
+//remote.OffButtonWasPushed(6);
+//remote.UndoButtonWasPushed();
+
+// Target
+EnemyTank enemyTank = new EnemyTank();
+// Adaptee
+EnemyRobot robot = new EnemyRobot();
+// Adapter
+EnemyRobotAdapter robotAdapter = new EnemyRobotAdapter(robot);
+
+enemyTank.AssignDriver("Brandon");
+enemyTank.FireWeapon();
+enemyTank.DriveForward();
+
+robotAdapter.AssignDriver("Brandon");
+robotAdapter.FireWeapon();
+robotAdapter.DriveForward();
 
 
 Console.ReadKey();
