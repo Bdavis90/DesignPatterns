@@ -9,6 +9,7 @@ using DecoratorPattern;
 using DecoratorPattern.BeverageTypes;
 using DecoratorPattern.Decorators;
 using DesignPatterns.Intro_To_Design_Patterns;
+using FacadePattern;
 using FactoryPattern.AbstractFactory;
 using FactoryPattern.AbstractFactory.Factory;
 using FactoryPattern.AbstractFactory.ProductInterface;
@@ -219,20 +220,26 @@ using System.Threading;
 //remote.OffButtonWasPushed(6);
 //remote.UndoButtonWasPushed();
 
-// Target
-EnemyTank enemyTank = new EnemyTank();
-// Adaptee
-EnemyRobot robot = new EnemyRobot();
-// Adapter
-EnemyRobotAdapter robotAdapter = new EnemyRobotAdapter(robot);
+//// Target
+//EnemyTank enemyTank = new EnemyTank();
+//// Adaptee
+//EnemyRobot robot = new EnemyRobot();
+//// Adapter
+//EnemyRobotAdapter robotAdapter = new EnemyRobotAdapter(robot);
 
-enemyTank.AssignDriver("Brandon");
-enemyTank.FireWeapon();
-enemyTank.DriveForward();
+//enemyTank.AssignDriver("Brandon");
+//enemyTank.FireWeapon();
+//enemyTank.DriveForward();
 
-robotAdapter.AssignDriver("Brandon");
-robotAdapter.FireWeapon();
-robotAdapter.DriveForward();
+//robotAdapter.AssignDriver("Brandon");
+//robotAdapter.FireWeapon();
+//robotAdapter.DriveForward();
+
+BackAccountFacade accessingBank = new BackAccountFacade(12345678, 1234);
+
+accessingBank.WithdrawCash(50.00);
+accessingBank.WithdrawCash(900.00);
+accessingBank.DepositCash(200.00);
 
 
 Console.ReadKey();
