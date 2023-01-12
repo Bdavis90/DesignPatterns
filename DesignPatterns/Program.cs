@@ -18,6 +18,7 @@ using FactoryPattern.FactoryMethod.Factories;
 using IntroToDesignPatterns.Intro_To_Design_Patterns.Behaviors;
 using ObserverPattern;
 using ObserverPattern.WeatherDisplays;
+using ProxyPattern;
 using SingletonPattern;
 using StrategyPattern.StrategyPattern;
 using System.Globalization;
@@ -235,12 +236,19 @@ using System.Threading;
 //robotAdapter.FireWeapon();
 //robotAdapter.DriveForward();
 
-BackAccountFacade accessingBank = new BackAccountFacade(12345678, 1234);
+//FACADE PATTERN
 
-accessingBank.WithdrawCash(50.00);
-accessingBank.WithdrawCash(900.00);
-accessingBank.DepositCash(200.00);
+//BackAccountFacade accessingBank = new BackAccountFacade(12345678, 1234);
 
+//accessingBank.WithdrawCash(50.00);
+//accessingBank.WithdrawCash(900.00);
+//accessingBank.DepositCash(200.00);
+
+//PROXY PATTERN
+
+IInternet internet = new ProxyInternet();
+internet.ConnectTo("google.com");
+internet.ConnectTo("banned.com");
 
 Console.ReadKey();
 
